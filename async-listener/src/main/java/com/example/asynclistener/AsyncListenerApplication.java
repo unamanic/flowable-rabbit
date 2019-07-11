@@ -1,5 +1,6 @@
 package com.example.asynclistener;
 
+import org.flowable.common.engine.impl.interceptor.CommandExecutor;
 import org.flowable.engine.ProcessEngineConfiguration;
 import org.flowable.job.service.impl.history.async.message.AsyncHistoryJobMessageReceiver;
 import org.springframework.amqp.core.Binding;
@@ -12,9 +13,6 @@ import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 
 @SpringBootApplication
 public class AsyncListenerApplication {
@@ -62,7 +60,6 @@ public class AsyncListenerApplication {
     }
 
     @Bean
-    @Lazy
     public AsyncHistoryJobMessageReceiver asyncHistoryJobMessageReceiver() {
         AsyncHistoryJobMessageReceiver asyncHistoryJobMessageReceiver = new AsyncHistoryJobMessageReceiver();
         asyncHistoryJobMessageReceiver.setAsyncHistoryJobMessageHandler(myJobMessageHandler());

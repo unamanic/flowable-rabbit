@@ -13,7 +13,6 @@
 package com.example.asynclistener;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import org.flowable.job.service.impl.history.async.AsyncHistoryJobHandler;
 import org.flowable.job.service.impl.history.async.message.AsyncHistoryJobMessageHandler;
 import org.flowable.job.service.impl.persistence.entity.HistoryJobEntity;
 
